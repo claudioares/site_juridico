@@ -1,3 +1,5 @@
+## Escopo da api:
+
 Este é o escopo de uma API projetado para oferecer funcionalidades e endpoints que suportem as operações descritas nas diferentes áreas do sistema. Abaixo, um esboço geral do escopo da API, dividido por áreas de acesso (Cliente, Prestador, Admin) e recursos gerais:
 
 ### 1. Autenticação e Registro

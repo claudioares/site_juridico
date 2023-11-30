@@ -5,7 +5,7 @@ Este é o escopo de uma API projetado para oferecer funcionalidades e endpoints 
 ### 1. Autenticação e Registro
 
 - Endpoint de registro para novos usuários.
-- Endpoint de login para clientes, prestadores e admin.
+- Endpoint de login para clientes e admin.
 
 ### 2. Acesso do Cliente
 
@@ -32,6 +32,7 @@ Este é o escopo de uma API projetado para oferecer funcionalidades e endpoints 
 
 - Endpoint para listar as solicitações disponíveis.
 - Endpoint para aceitar uma solicitação.
+- Endpoint para andamento de processos aceitos
 
 #### Área de Elaboração de Documentos
 
@@ -40,7 +41,7 @@ Este é o escopo de uma API projetado para oferecer funcionalidades e endpoints 
 
 #### Histórico de Trabalhos
 
-- Endpoint para visualizar o histórico de trabalhos realizados.
+- Endpoint para visualizar o andamento do processo.
 
 ### 4. Acesso do Admin
 

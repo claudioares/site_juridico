@@ -1,0 +1,172 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model admin {
+  id        String   @id @default(uuid())
+  name      String
+  password  String
+  cpf       String
+  phone     String
+  endress   String
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+}
+
+model user {
+  id          String        @id @default(uuid())
+  name        String
+  email       String
+  whats       String
+  password    String
+  workRequest workRequest[]
+
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+
+  status String
+}
+
+model workRequest {
+  id          String      @id @default(uuid())
+  description String
+  info        String
+  other_info  String
+  parties     String
+  interview   interview[]
+  document    document[]
+  status      Boolean
+
+  user_Id    String
+  workRequst user   @relation(fields: [user_Id], references: [id])
+}
+
+model interview {
+  id            String   @id @default(uuid())
+  workRequestId String
+  hour          DateTime
+
+  wRequestId workRequest @relation(fields: [workRequestId], references: [id])
+  client     client?     @relation(fields: [clientId], references: [id])
+  clientId   String?
+}
+
+model document {
+  id            String @id @default(uuid())
+  workRequestId String
+  content       String
+
+  wRequestId workRequest @relation(fields: [workRequestId], references: [id])
+  client     client?     @relation(fields: [clientId], references: [id])
+  clientId   String?
+}
+
+// Pos entrevista com cliente
+model client {
+  id       String @id @default(uuid())
+  name     String
+  email    String
+  whats    String
+  password String
+  cpf      String
+  endress  String
+  payValue String
+
+  describe   String
+  info       String
+  other_info String
+  parties    String
+  interview  interview[]
+  document   document[]
+  payment    payment[]
+  status     Boolean
+
+  cretedAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+}
+
+model payment {
+  id        String @id @default(uuid())
+  client_id String
+  payment   String
+
+  paymentClient client @relation(fields: [client_id], references: [id])
+}
+
+// andamentos dos processos
+model statusCase {
+  id            String @id @default(uuid())
+  id_client     String
+  processNumber String
+
+  caseMoviment caseMoviment[]
+  petitions    petition[]
+
+  court       String
+  processType String
+
+  hearings      hearing[]
+  statusProcess Boolean
+  statusPayment Boolean
+}
+
+model caseMoviment {
+  id        String @id @default(uuid())
+  moviments String
+
+  statusCaseId String
+  caseMoviment statusCase @relation(fields: [statusCaseId], references: [id])
+}
+
+model petition {
+  id       String @id @default(uuid())
+  petition String
+
+  statusCaseId String
+  petitions    statusCase @relation(fields: [statusCaseId], references: [id])
+}
+
+model hearing {
+  id             String   @id @default(uuid())
+  pastHearings   DateTime
+  futureHearings DateTime
+
+  statusCaseId String
+  hearing      statusCase @relation(fields: [statusCaseId], references: [id])
+}
+
+// serviços e preços
+
+model prices {
+  id       String @id @default(uuid())
+  job      String
+  jobValue String
+}
+
+// tabela de advogados
+
+model advs {
+  id          String @id @default(uuid())
+  name        String
+  email       String
+  password    String
+  numRegister String
+
+  caseJobs cases[]
+}
+
+model cases {
+  id String @id @default(uuid())
+
+  case   String
+  advsId String
+  cases  advs   @relation(fields: [advsId], references: [id])
+}

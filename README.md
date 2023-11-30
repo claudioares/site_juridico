@@ -3,24 +3,30 @@
 Sistema web para criação de petições e documentos jurídicos:
 
 1. Página Inicial:
-
-Área de Login para Clientes, Prestadores e Admin.
-Opção de Registro para novos usuários.
-
+   - Área de Login para Clientes.
+   - Opção de Registro para novos usuários.
 2. Acesso do Cliente (Advogados e Escritórios de Advocacia):
 
-Formulário de Solicitação:
-Campos para as particularidades da demanda jurídica, como tipo de petição, informações relevantes, partes envolvidas, etc.
-Anexar documentos relevantes.
+### Formulário de Solicitação:
+
+Campos para as particularidades da demanda jurídica, como:
+
+- tipo de petição
+- informações relevantes
+- partes envolvidas
+- Anexar documentos relevantes.
 
 Visualização de Serviços Disponíveis:
-Lista de serviços oferecidos com descrições e preços.
+
+- Lista de serviços oferecidos com descrições e preços.
 
 Área de Pagamento:
-Integração de sistema de pagamento para que o cliente possa pagar pelo serviço solicitado.
+
+- Integração de sistema de pagamento para que o cliente possa pagar pelo serviço solicitado.
 
 Histórico de Solicitações:
-Página onde o cliente pode visualizar o status e histórico das suas solicitações anteriores.
+
+- Página onde o cliente pode visualizar o status e histórico das suas solicitações anteriores.
 
 3. Acesso do Prestador (Advogados):
 

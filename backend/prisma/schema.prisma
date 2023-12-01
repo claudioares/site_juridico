@@ -25,14 +25,14 @@ model user {
   id          String        @id @default(uuid())
   name        String
   email       String
-  whats       String
+  whats       String?
   password    String
   workRequest workRequest[]
 
   createdAt DateTime @default(now())
   updateAt  DateTime @updatedAt
 
-  status String
+  status String?
 }
 
 model workRequest {
